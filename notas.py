@@ -6,8 +6,24 @@ alumnos = [
     {"nombre": "Sara", "nota": 9.0},
 ]
 
+def calcular_media(alumnos:list)->float:
+    """Calcula la media de una lista de alumnos
+    Args:
+        alumnos (list): Lista de objetos de estudiantes
+    Returns:
+        float: Media de las notas de los estudiantes
+    """
+    media = 0
+
+    sumaNotas = 0
+    for alumno in alumnos:
+        nota = alumno["nota"]
+        sumaNotas += float(nota)
+
+    media = sumaNotas/len(alumnos)
+    return media
+
 contAprob = 0
-sumaNotas = 0
 for alumno in alumnos:
     nota = alumno["nota"]
 
@@ -18,11 +34,10 @@ for alumno in alumnos:
         estado = "Suspens@"
     
     print(f"{alumno["nombre"].upper()}: {nota} -> {estado} ")
-    sumaNotas += float(nota)
 
     
 
 print(f"\nTotal estudiantes: {len(alumnos)}")
 print(f"Estudiantes aprobadxs: {contAprob}")
 print(f"Estudiantes suspensxs: {len(alumnos) - contAprob}")
-print(f"Media de la clase: {sumaNotas/len(alumnos)}")
+print(f"Media de la clase: {calcular_media(alumnos)}")
