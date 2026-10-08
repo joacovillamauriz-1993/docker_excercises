@@ -20,7 +20,7 @@ def calcular_media(alumnos:list)->float:
         nota = alumno["nota"]
         sumaNotas += float(nota)
 
-    media = sumaNotas/len(alumnos)
+    media = round(sumaNotas/len(alumnos), 2)
     return media
 
 contAprob = 0
